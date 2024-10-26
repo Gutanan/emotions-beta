@@ -1,0 +1,31 @@
+.categories-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.category-button {
+    background-color: white;
+    border: none;
+    border-radius: 30px;
+    color: #999;
+    font-size: 16px;
+    padding: 12px 24px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    font-weight: bold;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    min-width: 100px;
+}
+
+.category-button:hover {
+    background-color: #ffcc00;
+    color: white;
+}
+
+.category-button:focus {
+    outline: none; /* Remove default outline */
+}

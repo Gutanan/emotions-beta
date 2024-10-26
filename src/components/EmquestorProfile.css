@@ -1,0 +1,170 @@
+
+.emq-emquestor-profile {
+    padding: 20px;
+    background-color: #f9f9f9;
+    width: 90%;
+    display: flex;
+    flex-direction: column;;
+    border-radius: 20px;
+}
+
+.emq-profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.emq-user-info {
+    display: flex;
+    align-items: center;
+}
+
+.emq-profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+.emq-user-details h2 {
+    margin: 0;
+    font-size: 32px;
+    color: #333;
+    text-align: left;
+}
+
+.emq-user-details p {
+    margin: 5px 0 0;
+    text-align: left;
+    color: #777;
+}
+
+.emq-wallet {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    min-width: 300px;
+    min-height: 150px;
+}
+
+.emq-wallet h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.emq-wallet p {
+    margin: 10px 0;
+    font-size: 32px;
+    color: #007bff;
+    text-align: center;
+    font-weight: bold;
+}
+
+.emq-wallet-buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.emq-wallet-button,
+.emq-shop-button {
+    padding: 10px 14px;
+    border: none;
+    border-radius: 13px;
+    cursor: pointer; /* Pointer cursor for buttons */
+    font-weight: bold; /* Bold text */
+    margin-top: 5px; /* Space above buttons */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 12px;
+    width: 45%;
+}
+
+.emq-wallet-button {
+    background: #eee; /* Light grey for Get more EmoCoins */
+    color: #333; /* Dark text color */
+    transition: background 0.3s; /* Smooth background change */
+}
+
+.emq-wallet-button:hover {
+    background: #ddd; /* Darker grey on hover */
+}
+
+.emq-shop-button {
+    background: #007bff; /* Gold background for Go to the shop */
+    color: white; /* White text color */
+    margin-left: 10px; /* Space between buttons */
+    transition: background 0.3s; /* Smooth background change */
+}
+
+.emq-shop-button:hover {
+    background: #007bff; /* Darker gold on hover */
+}
+
+.emq-dashboard-name {
+    font-size: 48px;
+    text-align: left;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.emq-dashboard {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.emq-dashboard-emotions {
+    background-color: #c3e3ff;
+    padding: 20px;
+    border-radius: 20px;
+    width: 20%;
+}
+
+.emq-dashboard-emotions-number {
+    font-size: 52px;
+    font-weight: bold;
+    color: #666;
+}
+
+.emq-dashboard-emotions-text {
+    font-size: 38px;
+    color: #777
+}
+
+.emq-dashboard-image {
+    width: 40%;
+}
+
+.emq-recent-emotions-name {
+    font-size: 38px;
+    text-align: left;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.emq-recent-emotions {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.emq-recent-emotions-video {
+    font-size: 24px;
+    color: #777;
+    font-weight: bold;
+}
+
+.emq-recent-emotion-image {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 5px;
+}

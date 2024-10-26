@@ -1,0 +1,41 @@
+/* ProfilePage.css */
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+.profile-selection {
+    display: flex;
+    gap: 40px;
+
+}
+
+.profile-button {
+    font-size: 32px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: grey;
+    padding: 10px;
+}
+
+.profile-button.emoter-active {
+    font-weight: bold;
+    color: #f0a500;
+}
+
+.profile-button.emquestor-active {
+    font-weight: bold;
+    color: #007bff; /* Active color for Emquestor */
+}
+
+.profile-content {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}

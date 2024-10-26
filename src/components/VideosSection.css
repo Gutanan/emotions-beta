@@ -1,0 +1,40 @@
+.videos-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px;
+    gap: 30px;
+}
+
+.video {
+    position: relative;
+    width: 70%;
+}
+
+iframe {
+    width: 100%;
+    aspect-ratio: 16 / 7;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.analyze-button {
+    background-color: #ffcc00;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    position: absolute;
+    bottom: 5%;
+    left: 10%;
+    transform: translateX(-50%);
+}
+
+.analyze-button:hover {
+    background-color: #e6b800;
+}

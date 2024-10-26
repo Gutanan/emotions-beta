@@ -1,0 +1,81 @@
+.wallet-section {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 40px;
+}
+
+.wallet-space {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.wallet {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    min-width: 300px;
+    min-height: 150px;
+}
+
+.page-name {
+    font-size: 60px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+.wallet h2 {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 10px;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+.emo-coins {
+    font-size: 40px;
+    font-weight: bold;
+    color: #ffcc00;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    text-align: center;
+}
+
+.get-more-coins {
+    background-color: #ffcc00;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 24px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.get-more-coins:hover {
+    background-color: #e6b800; /* Darker gold on hover */
+}
+
+.image-space {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px; /* Rounded corners for the image */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Shadow effect for the image */
+}
+

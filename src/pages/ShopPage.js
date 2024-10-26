@@ -1,11 +1,16 @@
 import React from 'react';
+import './ShopPage.css';
+import Wallet from '../components/ShopWalletSection';
+import ShopContent from '../components/ShopSection';
 
-function ShopPage() {
+function Shop() {
     return (
-        <div>
-            <p>This is Shop Page</p>
+        <div className="shop-container">
+            <Wallet />
+            <ShopContent />
         </div>
     );
 }
 
-export default ShopPage;
+export default Shop;
+

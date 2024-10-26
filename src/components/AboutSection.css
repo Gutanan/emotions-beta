@@ -1,0 +1,82 @@
+.about-container {
+    padding: 40px;
+    font-family: 'Arial', sans-serif;
+    background-color: #ffffff; /* Bílé pozadí */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Silnější stín pro efekt */
+    border-radius: 12px; /* Zaoblené rohy */
+    max-width: 90%; /* Maximální šířka */
+    margin: 40px auto; /* Centrované s automatickými okraji */
+    text-align: left; /* Zarovnání textu vlevo */
+}
+
+.about-title {
+    font-size: 2.5rem; /* Velikost písma pro nadpis */
+    color: #1c1c1c; /* Tmavě šedá barva textu */
+    margin-bottom: 20px;
+    border-bottom: 2px solid #e3e3e3; /* Spodní čára pod nadpisem */
+    padding-bottom: 10px; /* Mezera pod nadpisem */
+}
+
+.about-subtitle {
+    font-size: 2rem; /* Velikost písma pro podnadpis */
+    color: #4a4a4a; /* Světlejší šedá barva textu */
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.about-description {
+    font-size: 1.1rem; /* Velikost písma pro popis */
+    color: #666666; /* Světle šedá barva textu */
+    line-height: 1.5; /* Větší výška řádku pro čitelnost */
+    margin-bottom: 20px;
+    margin-left: 50px;
+}
+/* Styly pro sekci "Need a help?" */
+.help-section {
+    margin-top: 40px; /* Mezera nad sekcí */
+    padding: 20px;
+    background-color: #f0f8ff; /* Světle modré pozadí */
+    border-radius: 8px; /* Zaoblené rohy */
+    display: flex; /* Flexbox pro umístění textu a obrázku */
+    align-items: center; /* Vertikální zarovnání */
+}
+
+.help-text {
+    flex: 1; /* Text zabere zbytek dostupného prostoru */
+    text-align: left; /* Zarovnání textu vlevo */
+}
+
+.help-title {
+    font-size: 2rem; /* Velikost písma pro nadpis pomoci */
+    color: #333; /* Tmavě šedá barva textu */
+}
+
+.help-description {
+    font-size: 1rem; /* Velikost písma pro popis pomoci */
+    color: #666; /* Světle šedá barva textu */
+    margin: 10px 0; /* Mezera nad a pod popisem */
+}
+
+.help-button {
+    background-color: #007bff; /* Barva tlačítka */
+    color: white; /* Barva textu v tlačítku */
+    border: none; /* Bez okrajů */
+    border-radius: 4px; /* Zaoblené rohy */
+    padding: 10px 20px; /* Vnitřní odsazení */
+    font-size: 1rem; /* Velikost písma pro tlačítko */
+    cursor: pointer; /* Změna kurzoru při hover */
+}
+
+.help-button:hover {
+    background-color: #0056b3; /* Tmavší modrá při hover */
+}
+
+.help-image {
+    margin-left: 20px; /* Mezera mezi textem a obrázkem */
+}
+
+.help-image img {
+    max-width: 150px; /* Maximální šířka obrázku */
+    height: auto; /* Automatická výška */
+    border-radius: 8px; /* Zaoblené rohy obrázku */
+}

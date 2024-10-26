@@ -1,11 +1,15 @@
 import React from 'react';
+import './VideosPage.css';
+import VideosCategories from '../components/VideosCategories';
+import VideosSection from '../components/VideosSection';
 
-function Videospage() {
+function VideosPage() {
     return (
-        <div>
-            <p>This is Videos Page</p>
+        <div className="videos-container">
+            <VideosCategories />
+            <VideosSection />
         </div>
     );
 }
 
-export default Videospage;
+export default VideosPage;
