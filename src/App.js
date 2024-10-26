@@ -7,6 +7,7 @@ import VideosPage from './pages/VideosPage';
 import ProfilePage from './pages/ProfilePage';
 import ShopPage from './pages/ShopPage';
 import AboutPage from './pages/AboutPage';
+import VideoDetailPage from './pages/VideoDetailPage'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/shop" element={<ShopPage />} />
             <Route path="/about" element={<AboutPage />} />
+              <Route path="/video/:videoId" element={<VideoDetailPage />} />
           </Routes>
           <Footer />
         </div>
