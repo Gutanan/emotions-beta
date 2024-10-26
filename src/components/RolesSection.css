@@ -1,0 +1,136 @@
+/* RolesSection.css */
+
+.roles-section {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px;
+}
+
+.role-card {
+    background-color: #f1f3f4;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    padding: 20px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.top-section {
+    display: flex;
+    align-items: center;
+    border-radius: 20px 20px 0 0;
+    padding: 20px;
+}
+
+.role-icon {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+}
+
+.role-description {
+    text-align: left;
+}
+
+.role-title {
+    font-size: 1.8rem;
+}
+
+.role-subtitle {
+    font-size: 1.2rem;
+    color: #333;
+    margin: 10px 0;
+}
+
+.role-text {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.bottom-section {
+    background-color: #f1f3f4;
+    padding: 20px;
+    border-radius: 0 0 20px 20px;
+}
+
+.steps-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.steps-list li {
+    margin: 10px 0;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.learn-more-btn {
+    background-color: transparent;
+    border: 2px solid #c4c4c4;
+    color: #666;
+    border-radius: 25px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+}
+
+.learn-more-btn:hover {
+    background-color: #eaeaea;
+}
+
+/* Specific styles for Emoter card */
+.emoter-card {
+    background-color: #fffbec;
+}
+
+.emoter-title {
+    color: #f0a500;
+}
+
+.emoter-btn {
+    background-color: #f0a500;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+}
+
+.emoter-btn:hover {
+    background-color: #d48900;
+}
+
+/* Specific styles for Emquestor card */
+.emquestor-card {
+    background-color: #e8f5ff;
+}
+
+.emquestor-title {
+    color: #007bff;
+}
+
+.emquestor-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+}
+
+.emquestor-btn:hover {
+    background-color: #005bb5;
+}

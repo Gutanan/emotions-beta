@@ -1,0 +1,29 @@
+/* HowItWorks.css */
+.how-it-works {
+    text-align: center;
+    padding: 50px;
+    background-color: #fff;
+}
+
+.steps {
+    display: flex;
+    justify-content: space-around;
+}
+
+.step {
+    width: 30%;
+    text-align: left;
+}
+
+.icon {
+    font-size: 2rem;
+    background-color: #f0a500;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}

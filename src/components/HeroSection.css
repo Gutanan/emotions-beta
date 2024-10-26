@@ -1,0 +1,40 @@
+/* HeroSection.css */
+.hero-section {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 50px;
+    background-color: #f1f3f4;
+}
+
+.hero-text {
+    max-width: 50%;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.highlight {
+    color: #f0a500;
+}
+
+.hero-text p {
+    margin: 20px 0;
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.discover-btn {
+    background-color: #f0a500;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.hero-image img {
+    width: 500px;
+}
