@@ -3,8 +3,16 @@ import './EmquestorProfile.css';
 import ProfilePic from './pictures/ProfilePic.png';
 import PieChartEmotions from './pictures/pie_chart_emotions.png';
 import LineChartEmotions from './pictures/line_chart_emotions.png';
+import { useNavigate } from "react-router-dom";
 
 function EmquestorProfile() {
+
+    const navigate = useNavigate();
+
+    const uploadRedirect = () => {
+        navigate(`/upload`);
+    };
+
     return (
         <div className="emq-emquestor-profile">
             <div className="emq-profile-header">
@@ -21,7 +29,7 @@ function EmquestorProfile() {
                     <p>234 Emocoins</p>
                     <div className="emq-wallet-buttons">
                         <button className="emq-wallet-button">Get more EmoCoins</button>
-                        <button className="emq-shop-button">Go to the shop</button>
+                        <button className="emq-shop-button" onClick={() => uploadRedirect()}>Upload video</button>
                     </div>
                 </div>
             </div>

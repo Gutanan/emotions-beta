@@ -1,0 +1,136 @@
+.upload-section {
+    padding: 40px 20px;
+    background-color: white;
+}
+
+.upload-header {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #4a4a4a;
+    margin: 30px
+}
+
+.upload-input-section {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.upload-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 35%;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.input-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.input-item-checkbox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 20px;
+}
+
+.input-item-input {
+    width: 50%;
+    padding: 10px;
+    font-size: 1rem;
+    color: #4a4a4a;
+    border: 1px solid #666666;
+    border-radius: 8px;
+    background-color: white;
+}
+
+#description {
+    height: 4em;
+}
+
+input.input-item-input::placeholder {
+    color: #bbb;
+}
+
+.input-item-input-choice {
+    min-width: 54.3%;
+    padding: 10px;
+    font-size: 1rem;
+    color: #4a4a4a;
+    border: 1px solid #666666;
+    border-radius: 8px;
+    background-color: white;
+}
+
+.input-name {
+    font-size: 1rem;
+    color: #4a4a4a;
+    width: 30%;
+}
+
+.input-item-input-range {
+    width: 50%;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 4px;
+    background: #ddd;
+    border-radius: 5px;
+    outline: none;
+    margin-top: 15px;
+}
+
+.input-item-input-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #4a4a4a;
+    cursor: pointer;
+}
+
+.input-item-input-checkbox {
+    margin-right: 8px;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.upload-button-section {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.upload-button-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 30px;
+    background-color: #eee;
+    border-radius: 30px;
+    width: 30%;
+}
+
+.upload-text {
+    color: #666;
+    font-weight: bold;
+}
+
+.upload-button {
+    background-color: #ffcc00;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
