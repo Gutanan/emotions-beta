@@ -1,9 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./UploadVideoSection.css";
 
 function VideoSection() {
+    const [account, setAccount] = useState(null);
+    const [videos, setVideos] = useState([]);
+
+    useEffect(() => {
+        // Načítání existujících videí z lokálního JSON souboru
+        const fetchVideos = async () => {
+            try {
+                const response = await fetch('/videos.json');
+                const jsonData = await response.json();
+                setVideos(jsonData.videos);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+        fetchVideos();
+
+        // Zkontrolovat připojení k MetaMask
+        const checkConnection = async () => {
+            if (window.ethereum) {
+                const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+                if (accounts.length > 0) {
+                    setAccount(accounts[0]);
+                }
+            }
+        };
+
+        checkConnection();
+    }, []);
+
     const upload = () => {
-        // Retrieve input values
+        // Získání hodnot z inputů
         const link = document.getElementById("link").value;
         const name = document.getElementById("name").value;
         const genre = document.getElementById("genre").value;
@@ -14,14 +44,18 @@ function VideoSection() {
         const maxSpend = document.getElementById("max").value;
         const agree = document.getElementById("agree").checked;
 
-        // Check if all required fields are filled
+        // Kontrola, zda jsou všechny povinné pole vyplněny
         if (!link || !name || !genre || !description || !age || !location || !reward || !maxSpend || !agree) {
             alert("Please fill out all fields and agree to the Terms of Use and Privacy Policy.");
             return;
         }
 
-        // Create the JSON object
-        const formData = {
+        // Vypočítat nové ID jako o 1 vyšší než maximální ID v existujících videích
+        const newId = videos.reduce((maxId, video) => Math.max(maxId, parseInt(video.id, 10)), 0) + 1;
+
+        // Vytvořit nový záznam
+        const newVideo = {
+            id: newId.toString(),
             link,
             name,
             genre,
@@ -31,11 +65,14 @@ function VideoSection() {
             reward,
             maxSpend,
             agree,
+            account
         };
 
-        console.log("Form Data JSON:", JSON.stringify(formData));
+        // Přidat nový záznam do pole videí
+        const updatedVideos = [...videos, newVideo];
 
-        // Add further processing here (e.g., sending data to a server)
+        // Výpis do konzole
+        console.log("Updated Videos:", updatedVideos);
     };
 
     return (
@@ -63,7 +100,7 @@ function VideoSection() {
                         </select>
                     </div>
                     <div className="input-item">
-                        <label className="input-name">Short descriptions</label>
+                        <label className="input-name">Short description</label>
                         <input className="input-item-input" id="description" type="text" placeholder="Description" />
                     </div>
                 </div>

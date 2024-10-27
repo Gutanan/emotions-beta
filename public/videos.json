@@ -1,0 +1,30 @@
+{
+  "videos": [
+    {
+      "id": "1",
+      "link":"https://www.youtube.com/embed/keOaQm6RpBg?si=kpi_YtRjcTLFt55K",
+      "name":"Heinz Add",
+      "genre":"Ads",
+      "description":"Heinz Add with Ed Sheeran",
+      "age":"18",
+      "location":"England",
+      "reward":"2",
+      "maxSpend":"20",
+      "agree":true,
+      "account":"0x3d43b218d3ff842c82b299868a24903891c397d8"
+    },
+    {
+      "id": "2",
+      "link":"https://www.youtube.com/embed/qMldEs0rf8o?si=XkzHwTv09vUG5bvW",
+      "name":"Futurama song",
+      "genre":"Trailers",
+      "description":"Full version of the Futurama anthem",
+      "age":"18",
+      "location":"USA",
+      "reward":"1",
+      "maxSpend":"20",
+      "agree":true,
+      "account":"0x3d43b218d3ff842c82b299868a24903891c397d8"
+    }
+  ]
+}

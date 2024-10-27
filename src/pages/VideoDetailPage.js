@@ -1,23 +1,40 @@
-import React, {useRef, useState} from 'react';
-import {useParams} from 'react-router-dom';
-import {pinFileToIPFS} from '../code/pinata';
+import React, { useEffect, useRef, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { pinFileToIPFS } from '../code/pinata';
 import './VideoDetailPage.css';
 
 function VideoDetail() {
     const { videoId } = useParams();
-    const videos = {
-        '1': 'https://www.youtube.com/embed/qMldEs0rf8o?si=XkzHwTv09vUG5bvW',
-        '2': 'https://www.youtube.com/embed/HxXv6k49BNk?si=a8uLb171TZbE9Hzk',
-    };
-
-    const videoSrc = videos[videoId] || '';
+    const [videoSrc, setVideoSrc] = useState('');
     const [isAnalyzing, setIsAnalyzing] = useState(false);
     const [ipfsHash, setIpfsHash] = useState('');
     const videoRef = useRef(null);
     const canvasRef = useRef(null);
 
+    useEffect(() => {
+        // Načítání videí z lokálního JSON souboru
+        const fetchVideos = async () => {
+            try {
+                const response = await fetch('/videos.json'); // Cesta k JSON souboru v public složce
+                const jsonData = await response.json();
+
+                // Najdeme video s odpovídajícím ID
+                const video = jsonData.videos.find(v => v.id === videoId);
+                if (video) {
+                    setVideoSrc(video.link); // Nastavíme URL pro iframe
+                } else {
+                    console.error("Video not found");
+                }
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+        fetchVideos();
+    }, [videoId]);
+
     const startCamera = async () => {
-        videoRef.current.srcObject = await navigator.mediaDevices.getUserMedia({video: true});
+        videoRef.current.srcObject = await navigator.mediaDevices.getUserMedia({ video: true });
         videoRef.current.play();
     };
 
@@ -26,7 +43,6 @@ function VideoDetail() {
             const canvas = canvasRef.current;
             const context = canvas.getContext('2d');
             context.drawImage(videoRef.current, 0, 0, canvas.width, canvas.height);
-
 
             canvas.toBlob(async (blob) => {
                 const result = await pinFileToIPFS(blob);
@@ -65,13 +81,13 @@ function VideoDetail() {
                         src={videoSrc}
                         frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        />
+                    />
                 )}
                 {isAnalyzing && (
                     <div className="status-message">Analyzing...</div>
                 )}
-                <video ref={videoRef} style={{ display: isAnalyzing ? 'block' : 'none'}} />
-                <canvas ref={canvasRef} style={{ display: 'none' }}/>
+                <video ref={videoRef} style={{ display: isAnalyzing ? 'block' : 'none' }} />
+                <canvas ref={canvasRef} style={{ display: 'none' }} />
                 <button className="analyze-button-detail" onClick={handleAnalyzeClick}>
                     {isAnalyzing ? "Stop" : "Start"}
                 </button>
