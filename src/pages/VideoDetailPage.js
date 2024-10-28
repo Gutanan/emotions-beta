@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { pinFileToIPFS } from '../code/pinata';
+import { connectWallet, addEntry, grantAccess, shareWith } from '../code/smartContractService';
 import './VideoDetailPage.css';
 
 function VideoDetail() {
@@ -8,17 +9,17 @@ function VideoDetail() {
     const [videoSrc, setVideoSrc] = useState('');
     const [isAnalyzing, setIsAnalyzing] = useState(false);
     const [ipfsHash, setIpfsHash] = useState('');
+    const [account, setAccount] = useState(null);
+    const [contract, setContract] = useState(null);
     const videoRef = useRef(null);
     const canvasRef = useRef(null);
 
     useEffect(() => {
-        // Načítání videí z lokálního JSON souboru
         const fetchVideos = async () => {
             try {
                 const response = await fetch('/videos.json'); // Cesta k JSON souboru v public složce
                 const jsonData = await response.json();
 
-                // Najdeme video s odpovídajícím ID
                 const video = jsonData.videos.find(v => v.id === videoId);
                 if (video) {
                     setVideoSrc(video.link); // Nastavíme URL pro iframe
@@ -31,7 +32,18 @@ function VideoDetail() {
         };
 
         fetchVideos();
+        handleConnectWallet(); // Připojení k peněžence při načtení komponenty
     }, [videoId]);
+
+    const handleConnectWallet = async () => {
+        try {
+            const { account, contract } = await connectWallet();
+            setAccount(account);
+            setContract(contract);
+        } catch (error) {
+            console.error("Chyba při připojení k peněžence:", error);
+        }
+    };
 
     const startCamera = async () => {
         videoRef.current.srcObject = await navigator.mediaDevices.getUserMedia({ video: true });
@@ -71,6 +83,35 @@ function VideoDetail() {
         });
     };
 
+    const handleWriteEmotions = async () => {
+        if (contract) {
+            try {
+                await addEntry(contract, "Emotions HASH");
+                console.log("Entry added.");
+
+                await grantAccess(contract);
+                console.log("Access granted.");
+            } catch (error) {
+                console.error("Chyba při volání Write Emotions funkcí:", error);
+            }
+        }
+    };
+
+    const handleSendToEmquestor = async () => {
+        if (contract) {
+            try {
+                const moneySender = "0x3D43B218D3ff842c82B299868A24903891C397D8"; // Zde použijte adresu moneySenderu
+                const sharedText = "Emotions HASH";
+                const cashAmount = "0.005"; // Částka v Etheru
+
+                await shareWith(contract, moneySender, sharedText, cashAmount);
+                console.log("Shared with Emquestor.");
+            } catch (error) {
+                console.error("Chyba při volání Send to Emquestor:", error);
+            }
+        }
+    };
+
     return (
         <div className="video-detail-content">
             <div className="video-detail">
@@ -106,8 +147,8 @@ function VideoDetail() {
                                 link.click();
                                 link.remove();
                             }}>View Emotions</button>
-                            <button className="drop-data-button">Drop Emotions</button>
-                            <button className="send-data-button">Send to Emquestor</button>
+                            <button className="drop-data-button" onClick={handleWriteEmotions}>Write Emotions</button>
+                            <button className="send-data-button" onClick={handleSendToEmquestor}>Send to Emquestor</button>
                         </div>
                     </div>
                 )}
