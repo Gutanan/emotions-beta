@@ -168,3 +168,33 @@
     max-width: 300px;
     border-radius: 5px;
 }
+
+.export-emotions-emquester {
+    width: 20%;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 13px;
+    cursor: pointer; /* Pointer cursor for buttons */
+    font-weight: bold; /* Bold text */
+    margin-top: 5px; /* Space above buttons */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 12px;
+    background-color: #007bff;
+    color: white;
+}
+
+.hash-container-emquester {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 20px;
+    justify-content: space-evenly;
+}
+
+.hash-box-emquester {
+    padding: 10px 14px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

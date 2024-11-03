@@ -26,3 +26,24 @@ export const pinFileToIPFS = async (file) => {
             throw error;
         });
 };
+
+export const pinJSONToIPFS = async (jsonString) => {
+    const url = `https://api.pinata.cloud/pinning/pinJSONToIPFS`;
+
+    const headers = {
+        'Content-Type': `application/json`,
+        pinata_api_key: PINATA_API_KEY,
+        pinata_secret_api_key: PINATA_SECRET_API_KEY
+    };
+
+    return axios
+        .post(url, JSON.parse(jsonString), { headers: headers })
+        .then(function (response) {
+            console.log("File pinned successfully:", response.data);
+            return response.data;
+        })
+        .catch(function (error) {
+            console.error("Error pinning file:", error);
+            throw error;
+        });
+};

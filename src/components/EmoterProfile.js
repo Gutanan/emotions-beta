@@ -4,17 +4,24 @@ import ProfilePic from './pictures/ProfilePic.png';
 import PieChartEmotions from './pictures/pie_chart_emotions.png';
 import LineChartEmoCoins from './pictures/line_chart_emocoins.png';
 import LineChartEmotions from './pictures/line_chart_emotions.png';
-import { connectWallet, getClientBalance, deposit } from '../code/smartContractService';
+import { connectWallet, getClientBalance, deposit, getEntries } from '../code/smartContractService';
 
 function EmoterProfile() {
 
     const [account, setAccount] = useState(null);
     const [contract, setContract] = useState(null);
     const [balance, setBalance] = useState("0");
+    const [emotionsData, setEmotionsData] = useState([]);
 
     useEffect(() => {
         handleConnectWallet();
     }, []);
+
+    useEffect(() => {
+        if (contract) {
+            handleGetBalance();
+        }
+    }, [contract]);
 
     const handleConnectWallet = async () => {
         try {
@@ -44,6 +51,18 @@ function EmoterProfile() {
                 handleGetBalance(); // Aktualizace balance po vkladu
             } catch (error) {
                 console.error("Chyba při provádění vkladu:", error);
+            }
+        }
+    };
+
+    const handleGetEmotions = async () => {
+        if (contract) {
+            try {
+                const data = await getEntries(contract);
+                setEmotionsData(data)
+
+            } catch (error) {
+                console.error("Chyba při přijámíní dat:", error);
             }
         }
     };
@@ -80,9 +99,27 @@ function EmoterProfile() {
             </div>
 
             <p className="recent-emotions-name">Your Recent Emotions</p>
+            <button className="export-emotions-emoter" onClick={handleGetEmotions}>Export Your Emotions</button>
+            {emotionsData.length > 0 ? (
+                <div className="hash-container-emoter">
+                    {emotionsData.map((hash, index) => (
+                        <div key={index} className="hash-box-emoter">
+                            <a
+                                href={`https://gateway.pinata.cloud/ipfs/${hash}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                {hash}
+                            </a>
+                        </div>
+                    ))}
+                </div>
+            ) : (
+                <p/>
+            )}
             <div className="recent-emotions">
                 <p className="recent-emotions-video">Add video 13234</p>
-                <img src={LineChartEmotions} alt="Recent Emotion" className="recent-emotion-graph" />
+                <img src={LineChartEmotions} alt="Recent Emotion" className="recent-emotion-graph"/>
             </div>
         </div>
     );

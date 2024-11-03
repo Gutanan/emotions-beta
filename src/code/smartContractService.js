@@ -89,6 +89,17 @@ export async function getEntries(contract) {
     }
 }
 
+export async function getSharedEntries(contract) {
+    try {
+        const sharedEntries = await contract.getSharedEntries();
+        console.log("Sdílené záznamy získány:", sharedEntries);
+        return sharedEntries; // Vrátí pole řetězců
+    } catch (error) {
+        console.error("Chyba při volání getSharedEntries:", error);
+        throw error;
+    }
+}
+
 export async function withdrawPayment(contract, amount) {
     try {
         const tx = await contract.withdrawPayment(parseEther(amount)); // Převede částku na wei
